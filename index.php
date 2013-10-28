@@ -10,6 +10,10 @@ $apiClient = new Google_Client();
 $apiClient->setUseObjects(true);
 $service = new Google_CalendarService($apiClient);
 
+if($apiConfig['oauth2_redirect_uri'] == $_SERVER['REQUEST_URI']) {
+   echo "<pre>".var_dump($_REQUEST)."</pre>"; 
+}
+
 if(isset($_SESSION['oauth_access_token'])) {
     $apiClient->setAccessToken($_SESSION['oauth_access_token']);
 } else {
