@@ -87,8 +87,11 @@
                   // log the whole item
                   console.log(resp.items[i]);
 
-                  var startDate = new Date(resp.items[i].start.dateTime, "mm/dd/yy h:MM:ss TT");
-                  var endDate   = new Date(resp.items[i].end.dateTime, "mm/dd/yy h:mm:ss TT");
+                  var startDate = new Date(resp.items[i].start.dateTime;
+                  startDate = startDate.getDate() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getYear();
+                  var endDate   = new Date(resp.items[i].end.dateTime;
+                  endDate = endDate.getDate() + "/" + (endDate.getMonth() + 1) + "/" + endDate.getYear();
+
                   var loadDestination = '';
                   var loadDescription = '';
 
@@ -105,7 +108,7 @@
                   li.appendChild(
                       "<div>" +
                           "<h3>" + resp.items[i].summary + "</h3>" +
-                          "<p>Start: " + startDate.format("mm/dd/yy h:MM:ss TT") + " - " + endDate.format("mm/dd/yy h:MM:ss TT") + "</p>" +
+                          "<p>Start: " + startDate + " - " + endDate + "</p>" +
                           "<p>Destination: " + loadDestination + "</p>" +
                           "<p>Description: " + loadDescription + "</p>" +
                       "</div>" 
