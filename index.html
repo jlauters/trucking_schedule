@@ -90,17 +90,43 @@
                   // Simple display for the moment -- list of item summaries
                   var li = document.createElement('li');
                   li.appendChild(document.createTextNode(resp.items[i].summary));
+                  li.appendChild(document.createTextNode(resp.items[i].start + " - " + resp.items[i].end)));
+                  li.appendChild(document.createTextNode(resp.items[i].location));
+                  li.appendChild(document.createTextNode(resp.items[i].description));
+                  
                   document.getElementById('events').appendChild(li);
               }
           });
 
         });
       }
+
+      // Insert a calendar event
+      function addLoadEvent() {
+          console.log('addLoadEvent() triggered...');
+      }
+
     </script>
     <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
     <div id="content"></div>
 
-    <h1> Calendar Events </h1>
+    <div id="add-event-container">
+        <h3>[+] Add new Load</h3>
+        <div id="add-form-container">
+            <form id="add-load" method="post" action="">
+                <input type="datetime" id="start-time" name="start-time" placeholder="Start Time">
+                <input type="datetime" id="end-time" name="end-time" placeholder="End Time">
+                <input type="text" id="summary" name="summary" placeholder="Load Summary (title)">
+                <input type="text" id="location" name="location" placeholder="Load Destination">
+                <input type="text" id="description" name="description" placeholder="Load Description (json object?)">
+
+                <input type="button" id="save" name="save" placeholder="Save" onClick="addLoadEvent();">
+
+            </form>
+        </div>
+    </div>
+
+    <h1>Calendar Events</h1>
     <ul id="events"></ul>
 
 </body>
