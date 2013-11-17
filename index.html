@@ -128,11 +128,11 @@
       function addLoadEvent() {
           console.log('addLoadEvent() triggered...');
 
-          var event_startTime   = new Date(jQuery('start-time').val());
-          var event_endTime     = new Date(jQuery('end-time').val());
-          var event_summary     = jQuery('summary').val();
-          var event_location    = jQuery('location').val();
-          var event_description = jQuery('description').val();
+          var event_startTime   = new Date(jQuery('#start-time').val());
+          var event_endTime     = new Date(jQuery('#end-time').val());
+          var event_summary     = jQuery('#summary').val();
+          var event_location    = jQuery('#location').val();
+          var event_description = jQuery('#description').val();
 
           // build resource object for calendar event insert
           var resource = {
