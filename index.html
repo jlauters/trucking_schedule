@@ -128,8 +128,8 @@
       function addLoadEvent() {
           console.log('addLoadEvent() triggered...');
 
-          var event_startTime   = document.getElementById('start-time');
-          var event_endTime     = document.getElementById('end-time');
+          var event_startTime   = new Date(document.getElementById('start-time'));
+          var event_endTime     = new Date(document.getElementById('end-time'));
           var event_summary     = document.getElementById('summary');
           var event_location    = document.getElementById('location');
           var event_description = document.getElementById('description');
@@ -139,10 +139,10 @@
               "summary": event_summary,
               "location": event_location,
               "start": {
-                  "dateTime": event_startTime
+                  "date": event_startTime
               },
               "end": {
-                  "dateTime": event_endTime
+                  "date": event_endTime
               }
           };
 
