@@ -86,25 +86,26 @@
       // Load the API and make an API call.  Display the results on the screen.
       function makeApiCall() {
         gapi.client.load('calendar', 'v3', function() {
-          var calendars = gapi.client.calendar.calendarList.list();
-          
-          console.log('user calendars: ');
-          console.log(calendars);
 
-          /* request.execute(function(resp) {
-            var heading = document.createElement('h4');
-            var image = document.createElement('img');
-            image.src = resp.image.url;
-            heading.appendChild(image);
-            heading.appendChild(document.createTextNode(resp.displayName));
+          var request = gapi.client.calendar.events.list({
+              'calendarId': 'l71u7f32i7kbi2ab1u3g2r6d1c'
+          });
 
-            document.getElementById('content').appendChild(heading);
-          });*/
+          request.execute(function(resp) {
+              for(var i = 0; i , resp.items.length; i++) {
+                  var li = document.createElement('li');
+                  li.appendChild(document.createTextNode(resp.items[i].summary);
+                  document.getElementById('events').appendChild(li);
+              }
+          });
         });
       }
     </script>
     <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
     <div id="content"></div>
-    <p>Authorize to sync to your Google Calendar</p>
+
+    <h1> Calendar Events </h1>
+    <ul id="events"></ul>
+
 </body>
 </html>
