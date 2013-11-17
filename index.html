@@ -84,20 +84,17 @@
           request.execute(function(resp) {
               for(var i = 0; i < resp.items.length; i++) {
 
-                  // log the whole item
-                  console.log(resp.items[i]);
-
                   var startDate = new Date(resp.items[i].start.date);
                   if('undefined' !== typeof resp.items[i].start.dateTime) {
                       startDate = new Date(resp.items[i].start.dateTime);
                   }
-                  startDate = startDate.getDate() + "/" + (startDate.getMonth() + 1) + "/" + startDate.getYear();
+                  startDate =  ((int)startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getYear();
 
                   var endDate = new Date(resp.items[i].end.date);
                   if('undefined' !== typeof resp.items[i].end.dateTime) {
                       endDate = new Date(resp.items[i].end.dateTime);
                   }
-                  endDate = endDate.getDate() + "/" + (endDate.getMonth() + 1) + "/" + endDate.getYear();
+                  endDate = ((int)endDate.getMonth() + 1) + "/" + endDate.getDate() + "/" + endDate.getYear();
 
                   var loadDestination = '';
                   var loadDescription = '';
@@ -130,6 +127,34 @@
       // Insert a calendar event
       function addLoadEvent() {
           console.log('addLoadEvent() triggered...');
+
+          var event_startTime   = document.getElementById('start-time');
+          var event_endTime     = document.getElementById('end-time');
+          var event_summary     = document.getElementById('summary');
+          var event_location    = document.getElementById('location');
+          var event_description = document.getElementById('description');
+
+          // build resource object for calendar event insert
+          var resource = {
+              "summary": event_summary,
+              "location": event_location,
+              "start": {
+                  "dateTime": event_startTime
+              },
+              "end": {
+                  "dateTime": event_endTime
+              }
+          };
+
+          var request = gapi.client.calendar.events.insert({
+              "calendarId": 'l71u7f32i7kbi2ab1u3g2r6d1c@group.calendar.google.com'
+             ,"resource": resource
+          });
+
+          request.execute(function(resp) {
+              console.log(resp);
+              makeApiCall();
+          });
       }
 
     </script>
