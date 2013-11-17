@@ -54,13 +54,20 @@
       function handleAuthResult(authResult) {
 
         console.log('login complete...');
-        console.log('auth token: ' + gapi.auth.getToken());
+        console.log('authResult: ');
+        console.log(authResult);
 
         var authorizeButton = document.getElementById('authorize-button');
         if (authResult && !authResult.error) {
           authorizeButton.style.visibility = 'hidden';
+      
+          console.log('Making API Call ...');
+
           makeApiCall();
         } else {
+
+          console.log('Waiting for click Event');
+
           authorizeButton.style.visibility = '';
           authorizeButton.onclick = handleAuthClick;
         }
@@ -98,6 +105,6 @@
     </script>
     <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
     <div id="content"></div>
-    <p>Retrieves your profile name using the Google Plus API.</p>
+    <p>Authorize to sync to your Google Calendar</p>
 </body>
 </html>
