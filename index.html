@@ -105,14 +105,13 @@
 
                   // Simple display for the moment -- list of item summaries
                   var li = document.createElement('li');
-                  li.appendChild(
+                  li.innerHTML =
                       "<div>" +
                           "<h3>" + resp.items[i].summary + "</h3>" +
                           "<p>Start: " + startDate + " - " + endDate + "</p>" +
                           "<p>Destination: " + loadDestination + "</p>" +
                           "<p>Description: " + loadDescription + "</p>" +
-                      "</div>" 
-                  );
+                      "</div>";
 
                   document.getElementById('events').appendChild(li);
               }
