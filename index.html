@@ -52,22 +52,11 @@
 
 
       function handleAuthResult(authResult) {
-
-        console.log('login complete...');
-        console.log('authResult: ');
-        console.log(authResult);
-
         var authorizeButton = document.getElementById('authorize-button');
         if (authResult && !authResult.error) {
           authorizeButton.style.visibility = 'hidden';
-      
-          console.log('Making API Call ...');
-
           makeApiCall();
         } else {
-
-          console.log('Waiting for click Event');
-
           authorizeButton.style.visibility = '';
           authorizeButton.onclick = handleAuthClick;
         }
@@ -88,7 +77,7 @@
         gapi.client.load('calendar', 'v3', function() {
 
           var request = gapi.client.calendar.events.list({
-              'calendarId': 'l71u7f32i7kbi2ab1u3g2r6d1c'
+              'calendarId': 'l71u7f32i7kbi2ab1u3g2r6d1c@group.calendar.google.com'
           });
 
           request.execute(function(resp) {
