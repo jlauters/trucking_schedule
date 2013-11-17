@@ -90,7 +90,8 @@
                   // Simple display for the moment -- list of item summaries
                   var li = document.createElement('li');
                   li.appendChild(document.createTextNode(resp.items[i].summary));
-                  li.appendChild(document.createTextNode(resp.items[i].start + " - " + resp.items[i].end)));
+                  li.appendChild(document.createTextNode(resp.items[i].start));
+                  li.appendChild(document.createTextNode(resp.items[i].end));
                   li.appendChild(document.createTextNode(resp.items[i].location));
                   li.appendChild(document.createTextNode(resp.items[i].description));
                   
@@ -120,7 +121,7 @@
                 <input type="text" id="location" name="location" placeholder="Load Destination">
                 <input type="text" id="description" name="description" placeholder="Load Description (json object?)">
 
-                <input type="button" id="save" name="save" placeholder="Save" onClick="addLoadEvent();">
+                <input type="button" id="save" name="save" value="Save" onClick="addLoadEvent();">
 
             </form>
         </div>
