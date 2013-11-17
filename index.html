@@ -139,10 +139,10 @@
               "summary": event_summary,
               "location": event_location,
               "start": {
-                  "date": event_startTime
+                  "date": event_startTime.toUTCString();
               },
               "end": {
-                  "date": event_endTime
+                  "date": event_endTime.toUTCString();
               }
           };
 
@@ -156,6 +156,7 @@
           });
 
           request.execute(function(resp) {
+              console.log('insert response: ');
               console.log(resp);
               makeApiCall();
           });
