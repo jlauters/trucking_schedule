@@ -76,17 +76,24 @@
       function makeApiCall() {
         gapi.client.load('calendar', 'v3', function() {
 
+          /* Set the calendar ID -- (TODO) Let user pick this */
           var request = gapi.client.calendar.events.list({
               'calendarId': 'l71u7f32i7kbi2ab1u3g2r6d1c@group.calendar.google.com'
           });
 
           request.execute(function(resp) {
               for(var i = 0; i < resp.items.length; i++) {
+
+                  // log the whole item
+                  console.log(resp.items[i]);
+
+                  // Simple display for the moment -- list of item summaries
                   var li = document.createElement('li');
                   li.appendChild(document.createTextNode(resp.items[i].summary));
                   document.getElementById('events').appendChild(li);
               }
           });
+
         });
       }
     </script>
