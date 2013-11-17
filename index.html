@@ -88,13 +88,13 @@
                   if('undefined' !== typeof resp.items[i].start.dateTime) {
                       startDate = new Date(resp.items[i].start.dateTime);
                   }
-                  startDate =  ((int)startDate.getMonth() + 1) + "/" + startDate.getDate() + "/" + startDate.getYear();
+                  startDate =  (parseInt(startDate.getMonth()) + 1) + "/" + startDate.getDate() + "/" + startDate.getYear();
 
                   var endDate = new Date(resp.items[i].end.date);
                   if('undefined' !== typeof resp.items[i].end.dateTime) {
                       endDate = new Date(resp.items[i].end.dateTime);
                   }
-                  endDate = ((int)endDate.getMonth() + 1) + "/" + endDate.getDate() + "/" + endDate.getYear();
+                  endDate = (parseInt(endDate.getMonth()) + 1) + "/" + endDate.getDate() + "/" + endDate.getYear();
 
                   var loadDestination = '';
                   var loadDescription = '';
