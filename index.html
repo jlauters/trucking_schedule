@@ -7,17 +7,82 @@
   <title>Google Calendar JS API TEST</title>
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-<!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+  <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+  <!--<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>-->
+  <!--<script type="text/javascript" src="js/jquery-ui-sliderAccess.js"></script>--> 
+  <script type="text/javascript" src="js/trucking.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 
     <body>
-    <!--Add a button for the user to click to initiate auth sequence -->
-    <button id="authorize-button" style="visibility: hidden">Authorize</button>
-    <script type="text/javascript">
+
+        <header>
+            <img src="holzman_trucking.jpg">
+        </header>
+
+        <section id="content">
+            <div class="content-box row">
+                <h3>Authorize</h3>
+
+                <div id="auth-container">
+                    <!--Add a button for the user to click to initiate auth sequence -->
+                    <button id="authorize-button" style="visibility: hidden">Authorize</button>
+                    <span>Sync up your Truck Load Google Calendar</span>
+                </div>
+            </div>
+
+            <div id="add-event-container" class="content-box row">
+                <h3>[+] Add New Load</h3>
+                <div id="add-form-container">
+                    <form id="add-load" method="post" action="save-load">
+                        <input type="text" id="starttime" name="starttime" placeholder="Start Time">
+                        <input type="text" id="endtime" name="endtime" placeholder="End Time">
+                        <input type="text" id="summary" name="summary" placeholder="Load Summary (title)">
+                        <input type="text" id="location" name="location" placeholder="Load Destination">
+                        <input type="text" id="description" name="description" placeholder="Load Description (json object?)">
+
+                        <input type="button" id="save" name="save" value="Save" onClick="addLoadEvent();">
+                    </form>
+                </div>
+            </div>
+
+            <div id="loads-container" class="content-box row">
+                <h3>[+] Calendar Events</h3>
+                <ul id="loads-list">
+                    <li>
+                        <div class="load">
+                            <h3>Test Developer Event</h3>
+                            <p>10/26/2013 07:30 -600 GMT --- 10/26/2013 11:57 -700 GMT</p>
+                            <p>Destination: 2525 Pearl Street Boulder, CO</p>
+                            <p>Description: This is a test event.</p>
+                        </div> 
+                    </li>
+                    <li>
+                        <div class="load">
+                            <h3>Test Developer Event</h3>
+                            <p>10/26/2013 07:30 -600 GMT --- 10/26/2013 11:57 -700 GMT</p>
+                            <p>Destination: 2525 Pearl Street Boulder, CO</p>
+                            <p>Description: This is a test event.</p>
+                        </div> 
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <script type="text/javascript">
       // Enter a client ID for a web application from the Google Developer Console.
       // The provided clientId will only work if the sample is run directly from
       // https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
@@ -164,26 +229,8 @@
 
     </script>
     <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
-    <div id="content"></div>
 
-    <div id="add-event-container">
-        <h3>[+] Add new Load</h3>
-        <div id="add-form-container">
-            <form id="add-load" method="post" action="">
-                <input type="datetime" id="start-time" name="start-time" placeholder="Start Time">
-                <input type="datetime" id="end-time" name="end-time" placeholder="End Time">
-                <input type="text" id="summary" name="summary" placeholder="Load Summary (title)">
-                <input type="text" id="location" name="location" placeholder="Load Destination">
-                <input type="text" id="description" name="description" placeholder="Load Description (json object?)">
-
-                <input type="button" id="save" name="save" value="Save" onClick="addLoadEvent();">
-
-            </form>
-        </div>
-    </div>
-
-    <h1>Calendar Events</h1>
-    <ul id="events"></ul>
+    
 
 </body>
 </html>

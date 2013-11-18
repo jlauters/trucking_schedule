@@ -1,0 +1,66 @@
+body { 
+    background-color: #c3c3c3; 
+    width: 100%; 
+    margin: 0 auto;
+    font-family: Helvetica, sans-serif;  
+}
+
+#content { 
+    max-width: 1140px;     
+    margin: 0 auto;
+}
+    
+header { 
+    width: 100%; 
+    height: auto; 
+    margin: 0 auto; 
+    text-align: center; 
+    background-color: #fff; 
+    box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+}
+
+.content-box { 
+    display: block;
+    width: 100%; 
+    height: auto; 
+    background-color: #fff; 
+    box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+
+    margin: 2% auto;
+
+}
+.content-box h3 { background-color: #040227; color: #fff; font-weight: lighter; padding: 1%; margin: 0 auto; }
+
+#auth-container { padding: 2% 3%; }
+
+#add-form-container { width: 98%; padding: 2% 3%; float: left; background-color: #fff; }
+#add-load input:not([type="submit"]):not([type="button"]) { 
+    height: 28px;
+    line-height: 29px;
+    padding: 0 2%;
+    margin-top: 6px;
+    font-size: 0.929em;
+    width: 85%; 
+}
+#add-load input[type="button"] { display: block; height: 28px; line-height: 29px; margin-top: 6px; font-size; 0.929em; }
+
+#loads-list { list-style: none; }
+#loads-list .load h3 { background: #fff; color: #040227; }
+
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
